@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-context', '~> 1.2'
   s.add_development_dependency 'test-unit', '~> 3.0'
   s.add_development_dependency 'yard', '~> 0.8'
+  s.add_development_dependency 'open_uri_redirections', '~> 0.2'
 
   s.files              = Dir.glob '**/*'
   s.test_files         = Dir.glob 'test/**/*'
