@@ -4,6 +4,7 @@
 # Copyright (c) 2011-2015, Sebastian Staudt
 
 require 'open-uri'
+require 'open_uri_redirections'
 
 require 'multi_xml'
 
@@ -20,7 +21,7 @@ module SteamCondenser::Community
     # @return [Hash<String, Object>] The data parsed from the XML document
     # @raise [Error] if an error occurs while parsing the XML data
     def parse(url)
-      data = open url, proxy: true
+      data = open(url, { proxy: true, allow_redirections: :safe })
       @xml_data = MultiXml.parse(data).values.first
     rescue
       raise SteamCondenser::Error.new "XML data could not be parsed: #{$!.message}", $!
